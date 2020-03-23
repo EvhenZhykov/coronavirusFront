@@ -1,0 +1,367 @@
+body {
+    font-size: 18px;
+}
+
+/*
+ * Logo + Search
+ */
+.main-content {
+    background-color: black;
+    min-height: 100vh;
+}
+
+.section {
+    padding: 0 5%;
+}
+
+.map-placeholder {
+    height: 300px;
+}
+
+.map-container {
+    height: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.input-group {
+    padding-top: 25px;
+}
+
+.input-group-addon {
+    border-radius: 71px;
+    background-color: #A80000;
+    color: white;
+    border-color: #A80000;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.input-group .form-control {
+    font-size: 18px;
+    line-height: 21px;
+    padding: 25px 20px;
+    border-radius: 71px;
+}
+
+.input-group .form-control::placeholder {
+    color: #A80000;
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .map-container.section {
+        padding: 0;
+    }
+}
+
+/*
+ * Country panel
+*/
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin-top: 20px;
+    border-right:10px solid rgba(255, 255, 255, 0.75);
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    margin-left: 100px;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.75);
+}
+
+.country-data-container {
+    display: flex;
+    margin-top: 20px;
+}
+.desktop-country-data {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+}
+
+.country-title {
+    font-size: 18px;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.country-name {
+    color: #2C2D38;
+    border-right: 1px solid #ECECEC;
+    display: inline-block;
+    padding-right: 25px;
+    margin-right: 14px;
+}
+
+.font-danger {
+    color: #BF3232
+}
+.font-grey {
+    color: #CACACA;
+}
+
+.font-black {
+    color: #4E4F5F;
+}
+
+.icon-remove {
+   margin-left: 55px;
+    color: #C6C6C6;
+}
+
+.table-bordered {
+    width: 100%;
+    border: 1px solid #ECECEC;
+    border-top: none;
+    border-collapse: collapse;
+}
+
+.table-bordered td {
+    padding: 10px 20px;
+}
+
+.data-value {
+    font-size: 24px;
+}
+
+.country-summary {
+    padding: 20px 20px;
+}
+
+.spread-value {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+@media (max-width: 1200px) {
+    .desktop-country-data {
+        width: 700px;
+    }
+    .country-data-container {
+        flex-direction: column;
+    }
+    .country-name {
+        width: 54%;
+        padding-left: 0;
+        padding-right: 35px;
+        margin-right: 15px;
+    }
+    .icon-remove {
+        float: right;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-country-data {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: 0 4px 79px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+    .country-data-container {
+        flex-direction: column;
+    }
+    .country-name {
+        width: 54%;
+        padding-left: 0;
+        padding-right: 35px;
+        margin-right: 15px;
+    }
+    .icon-remove {
+        float: right;
+    }
+}
+
+/*
+ * Statistics
+*/
+
+.table-container {
+    background-color: #FFFFFF;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.table-container img {
+    float: right;
+    margin-top: 50px;
+}
+
+.table-container .col-xs-4, .col-xs-6 {
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.table-container .table-key {
+    text-align: left;
+    font-size: 16px;
+    border: 1px solid #F3F3F3;
+    border-right: none;
+    border-radius: 15px 0 0 15px;
+    padding: 21px 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.table-container .table-value {
+    border: 1px solid #F3F3F3;
+    border-right: none;
+    font-size: 24px;
+}
+
+.table-container .table-share {
+    border: 1px solid #F3F3F3;
+    border-radius: 0 15px 15px 0;
+    font-size: 24px;
+}
+
+.section-title {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+}
+.section-title span {
+    background-color: #FFFFFF;
+    padding: 20px 40px 15px 40px;
+    border-radius: 150px 150px 0 0;
+}
+
+.divider {
+    width: 56px;
+    border: 1px solid #D1D1D1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.table-head {
+    font-size: 14px;
+    border-left: 1px solid #E3E3E3;
+}
+
+@media (max-width: 1200px) {
+    .table-container {
+        padding-top: 25px;
+    }
+    .section-title {
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+}
+
+/*
+ * Top infected
+*/
+
+.top-container {
+    background-color: #E5E5E5;
+}
+
+.top-title {
+    min-height: max-content;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.top-title span {
+    background-color: #FFFFFF;
+    padding: 15px 40px 20px 40px;
+    border-radius: 0 0 150px 150px;
+}
+
+.content-table {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.content-table .col-xs-12 {
+    margin: 20px 0;
+}
+
+.content-table .col-xs-4 {
+    background-color: #FFFFFF;
+    padding: 20px 20px;
+    border: 1px solid #E3E3E3;
+    text-align: center;
+
+}
+
+.content-table .content-name {
+    font-size: 18px;
+    text-align: left;
+    border-radius: 15px 0 0 15px;
+    border-right: none;
+    padding: 27px 20px 28px 20px;
+}
+
+.content-table .content-count {
+    font-size: 28px;
+}
+
+.content-table .content-share {
+    font-size: 28px;
+    border-radius: 0 15px 15px 0;
+}
+
+.mobile-img {
+    text-align: center;
+    margin: 35px 10px;
+}
+
+@media (max-width: 1200px) {
+    .top-container {
+        box-shadow: 0 4px 74px rgba(0, 0, 0, 0.06);
+    }
+    .top-title {
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+    .content-table {
+        margin-top: 50px;
+    }
+}
+
+/*
+ * Footer
+*/
+
+.footer {
+    padding: 30px 50px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+}
+.footer div {
+    margin: 0 40px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer div {
+        margin: 20px 0;
+    }
+}

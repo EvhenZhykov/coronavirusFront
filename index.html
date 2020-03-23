@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Corona virus website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="main-content">
+    <div class="map-container section">
+        <div class="flex-container">
+            <img src="./images/logo.png" width="130"
+                 height="110" alt="logo">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter the country">
+                <div class="input-group-addon"><i class="icon-long-arrow-right icon-large"></i></div>
+            </div>
+        </div>
+        <div class="map-placeholder">
+
+        </div>
+        <div class="country-data-container">
+            <div class="arrow-left visible-lg"></div>
+            <div class="arrow-up hidden-lg"></div>
+            <div class="desktop-country-data">
+                <div class="country-title">
+                    <span class="country-name">Ukraine</span>
+                    <span class="font-danger">35M</span>
+                    <i class="icon-remove"></i>
+                </div>
+                <div>
+                    <div class="table-responsive">
+                        <table class="table-bordered">
+                            <tr>
+                                <td class="font-grey">
+                                    Infected:
+                                </td>
+                                <td class="data-value font-danger">
+                                    15.000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-grey">
+                                    Death:
+                                </td>
+                                <td class="data-value font-danger">
+                                    15.000
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-grey">
+                                    Recovered:
+                                </td>
+                                <td class="data-value font-danger">
+                                    15.000
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="country-summary">
+                        <div class="font-grey">Spread of infection speed:</div>
+                        <div class="spread-value font-danger">2 people/day</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-title font-black visible-lg">
+        <span>Global Statistic</span>
+    </div>
+    <div class="table-container section col-xs-12">
+        <div class="section-title font-black hidden-lg">
+            <span>Global Statistic</span>
+        </div>
+        <div class="col-lg-8 col-xs-12">
+            <div class="col-xs-12">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-4 table-head">amount</div>
+                <div class="col-xs-4 table-head">% of population</div>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-3 table-key">Infected</div>
+                <div class="col-xs-4 table-value font-danger">59 437</div>
+                <div class="col-xs-4 table-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-xs-offset-5 divider"></div>
+            <div class="col-xs-12">
+                <div class="col-xs-3 table-key">Death</div>
+                <div class="col-xs-4 table-value font-danger">59 437</div>
+                <div class="col-xs-4 table-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-xs-offset-5 divider"></div>
+            <div class="col-xs-12">
+                <div class="col-xs-3 table-key">Recovered</div>
+                <div class="col-xs-4 table-value font-danger">59 437</div>
+                <div class="col-xs-4 table-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-xs-offset-5 divider"></div>
+            <div class="col-xs-12">
+                <div class="col-xs-5 col-lg-4 table-key">Spread infection speed</div>
+                <div class="col-xs-6 col-lg-7 table-share font-danger">2 people/day</div>
+            </div>
+        </div>
+        <div class="col-lg-4 visible-lg">
+            <img src="./images/virusIcon.png" alt="">
+        </div>
+    </div>
+    <div class="top-container section col-xs-12">
+        <div class="col-xs-12 top-title font-black visible-lg">
+            <span>Top infected countries</span>
+        </div>
+        <div class="col-xs-12 top-title font-black hidden-lg">
+            Top infected countries
+        </div>
+        <div class="col-xs-12 content-table">
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <div class="col-xs-4 content-name">China</div>
+                <div class="col-xs-4 content-count font-danger">59 437</div>
+                <div class="col-xs-4 font-black content-share">10.65%</div>
+            </div>
+        </div>
+        <div class="col-xs-12 hidden-lg mobile-img">
+            <img src="./images/virusIcon.png" alt="">
+        </div>
+    </div>
+    <div class="footer font-black">
+        <div>Terms of service</div>
+        <div>Terms of service</div>
+        <div>Terms of service</div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+</body>
+</html>
