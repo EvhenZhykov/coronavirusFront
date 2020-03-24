@@ -30,6 +30,7 @@ body {
 
 .input-group {
     padding-top: 25px;
+    cursor: pointer;
 }
 
 .input-group-addon {
@@ -39,6 +40,9 @@ body {
     border-color: #A80000;
     padding-left: 20px;
     padding-right: 20px;
+}
+.input-group-addon:active {
+    background-color: #800909;
 }
 
 .input-group .form-control {

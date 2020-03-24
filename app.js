@@ -3,14 +3,42 @@ let now = new Date();
 let timeDiff = Math.abs(now.getTime() - startCoronaVirus.getTime());
 let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-const URL = 'http://ff96d2bc.ngrok.io/api/last-statistic';
+const HOST = 'http://ff96d2bc.ngrok.io';
+const URL = HOST+'/api/last-statistic';
+const URLbyCountry = HOST +'/api/statistic';
 const TIMEOUT = 86400;
+
+function getStatisticByCountry() {
+    let searchString = $("#search_box").val();
+
+    if(searchString === ''){
+        searchString = "Ukraine";
+    }
+
+    axios.post(URLbyCountry, {
+        country: searchString,
+    })
+        .then(function (response) {
+            let data = response.data.results.data;
+            $('.by-country .country-name').text(data.country);
+            $('.by-country .infected-count').text(data.totalCases);
+            $('.by-country .death').text(data.totalDeaths);
+            $('.by-country .recovered').text(data.totalRecovered);
+            $('.by-country .country-population').text(data.population.toLocaleString());
+            $('.spread-value').text((data.totalCases/diffDays).toFixed(0) + " people/day");
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
 const fetchData = () => {
     return axios({
         method: 'get',
         url: URL
     });
 };
+
 const getData = async () => {
     try {
         const response = await fetchData();
@@ -26,8 +54,8 @@ const getData = async () => {
 const dataProcessing = async () => {
     const data = await getData();
     if (data) {
-        const generalData = data.generalData;
-        const totalAllData = data.data;
+        let generalData = data.generalData;
+        let totalAllData = data.data;
         let topData = totalAllData.splice(0, 8);
 
         $('#total_infected').text(generalData.cases.toLocaleString());
@@ -45,21 +73,7 @@ const dataProcessing = async () => {
             $('#population_' + index ).text((val.totalCases*100/val.population).toFixed(5)+" %");
         });
 
-        axios.post('http://ff96d2bc.ngrok.io/api/statistic', {
-            country: "Ukraine",
-        })
-            .then(function (response) {
-                $('.by-country .country-name').text(response.data.results.data.country);
-                $('.by-country .infected-count').text(response.data.results.data.totalCases);
-                $('.by-country .death').text(response.data.results.data.totalDeaths);
-                $('.by-country .recovered').text(response.data.results.data.totalRecovered);
-                $('.by-country .country-population').text(response.data.results.data.population.toLocaleString());
-                $('.spread-value').text((response.data.results.data.totalCases/diffDays).toFixed(0) + " people/day");
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        getStatisticByCountry()
 
     }
 
@@ -71,23 +85,12 @@ const init = async () => {
 init();
 
 $(".search_button").click(function() {
-    let searchString = $("#search_box").val();
+    getStatisticByCountry()
+});
 
-    axios.post('http://ff96d2bc.ngrok.io/api/statistic', {
-        country: searchString,
-    })
-    .then(function (response) {
-        console.log(response.data.results.data);
-        $('.by-country .country-name').text(response.data.results.data.country);
-        $('.by-country .infected-count').text(response.data.results.data.totalCases);
-        $('.by-country .death').text(response.data.results.data.totalDeaths);
-        $('.by-country .recovered').text(response.data.results.data.totalRecovered);
-        $('.by-country .country-population').text(response.data.results.data.population.toLocaleString());
-        $('.spread-value').text((response.data.results.data.totalCases/diffDays).toFixed(0) + " people/day");
-
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
+$("#search_box").keydown(function(e) {
+    if(e.keyCode === 13) {
+        getStatisticByCountry()
+    }
 });
 
