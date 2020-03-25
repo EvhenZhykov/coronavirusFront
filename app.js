@@ -3,7 +3,7 @@ let now = new Date();
 let timeDiff = Math.abs(now.getTime() - startCoronaVirus.getTime());
 let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-const HOST = 'http://ff96d2bc.ngrok.io';
+const HOST = 'https://api.covid.theevenstar.net';
 const URL = HOST+'/api/last-statistic';
 const URLbyCountry = HOST +'/api/statistic';
 const TIMEOUT = 86400;
