@@ -30,6 +30,7 @@ body {
 
 .input-group {
     padding-top: 25px;
+    width: 30%;
     cursor: pointer;
 }
 
@@ -40,9 +41,6 @@ body {
     border-color: #A80000;
     padding-left: 20px;
     padding-right: 20px;
-}
-.input-group-addon:active {
-    background-color: #800909;
 }
 
 .input-group .form-control {
@@ -56,6 +54,13 @@ body {
     color: #A80000;
 }
 
+@media (max-width: 398px) {
+    .table-container .table-share.font-danger {
+        font-size: 20px;
+        padding-top: 21px;
+    }
+}
+
 @media (max-width: 768px) {
     .flex-container {
         padding-left: 5%;
@@ -63,6 +68,13 @@ body {
     }
     .map-container.section {
         padding: 0;
+    }
+    .input-group {
+        width: 45%;
+    }
+    .col-xs-12, .col-xs-4 {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
@@ -122,7 +134,7 @@ body {
 }
 
 .icon-remove {
-   margin-left: 55px;
+    margin-left: 55px;
     color: #C6C6C6;
 }
 
@@ -331,6 +343,14 @@ body {
 .mobile-img {
     text-align: center;
     margin: 35px 10px;
+}
+
+@media (max-width: 398px) {
+    .content-table .content-count {
+        font-size: 25px;
+        padding-top: 22px;
+        padding-bottom: 23px;
+    }
 }
 
 @media (max-width: 1200px) {
