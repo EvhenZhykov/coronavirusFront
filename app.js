@@ -1,3 +1,4 @@
+const planetApp =  new PlanetApp.PlanetApp();
 let startCoronaVirus = new Date("12/08/2019");
 let now = new Date();
 let timeDiff = Math.abs(now.getTime() - startCoronaVirus.getTime());
@@ -30,6 +31,9 @@ function getStatisticByCountry() {
         .catch(function (error) {
             console.log(error);
         });
+}
+const loadPandemicData = ( resourcesPath ) => {
+    return fetch( resourcesPath + "pandemicData.txt" ).then( pandemicData => pandemicData.json( ) );
 }
 
 const fetchData = () => {
@@ -71,6 +75,14 @@ const dataProcessing = async () => {
             $('#indexName_' + index ).text(val.country);
             $('#indexCount_' + index ).text(val.totalCases.toLocaleString());
             $('#population_' + index ).text((val.totalCases*100/val.population).toFixed(5)+" %");
+        });
+        Promise.all([
+            loadPandemicData( './lib/resources/' ),
+            planetApp.load('./lib/resources')
+        ]).then(() => {
+            console.log(data.apiData);
+            planetApp.setPandemicData({features: data.apiData});
+            planetApp.setContainer(document.querySelector("#planet-container"));
         });
 
         getStatisticByCountry()
