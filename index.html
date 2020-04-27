@@ -10,8 +10,8 @@
 </head>
 <body>
 <div class="main-content">
-    <div class="map-container section">
-        <div class="flex-container">
+    <div class="map-container">
+        <div class="flex-container section">
             <img src="./images/logo.png" width="130"
                  height="110" alt="logo">
             <div class="input-group">
@@ -19,10 +19,10 @@
                 <div class="search_button input-group-addon"><i class="icon-long-arrow-right icon-large"></i></div>
             </div>
         </div>
-        <div class="map-placeholder">
+        <div id="planet-container" class="map-placeholder">
 
         </div>
-        <div class="country-data-container">
+        <div id="country-container" class="country-data-container">
             <div class="arrow-left visible-lg"></div>
             <div class="arrow-up hidden-lg"></div>
             <div class="by-country desktop-country-data">
@@ -32,7 +32,7 @@
                     <i class="icon-remove"></i>
                 </div>
                 <div>
-                    <div class="table-responsive">
+                    <div class="table">
                         <table class="table-bordered">
                             <tr>
                                 <td class="font-grey">
@@ -177,6 +177,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./lib/index.js"></script>
 <script src="./app.js"></script>
 </body>
 </html>
