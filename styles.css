@@ -14,18 +14,20 @@ body {
     padding: 0 5%;
 }
 
-.map-placeholder {
-    height: 500px;
-}
 
 .map-container {
     height: 100%;
 }
-
+#planet-container {
+    position: relative;
+    height: 600px;
+    z-index: 2;
+}
 .flex-container {
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
+    z-index: 9999;
 }
 
 .input-group {
@@ -100,8 +102,10 @@ body {
 }
 
 .country-data-container {
-    display: flex;
-    margin-top: 20px;
+    display: none;
+    position: absolute;
+    top: 150px;
+    z-index: 10;
 }
 .desktop-country-data {
     background-color: #FFFFFF;
@@ -165,11 +169,12 @@ body {
 
 
 @media (max-width: 1200px) {
-    .desktop-country-data {
-        width: 700px;
-    }
     .country-data-container {
         flex-direction: column;
+        position: unset;
+    }
+    .desktop-country-data {
+        border-radius: 0;
     }
     .country-name {
         width: 54%;
@@ -248,7 +253,7 @@ body {
 }
 
 .section-title {
-    margin-top: 100px;
+    margin-top: 20px;
     text-align: center;
     font-size: 28px;
     display: flex;

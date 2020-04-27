@@ -3,37 +3,43 @@ let startCoronaVirus = new Date("12/08/2019");
 let now = new Date();
 let timeDiff = Math.abs(now.getTime() - startCoronaVirus.getTime());
 let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+let mapCounter = 0;
+let apiData = [];
 
 const HOST = 'https://api.covid.theevenstar.net';
 const URL = HOST+'/api/last-statistic';
 const URLbyCountry = HOST +'/api/statistic';
 const TIMEOUT = 86400;
+const countryContainer = document.querySelector( "#country-container" );
 
 function getStatisticByCountry() {
     let searchString = $("#search_box").val();
 
     if(searchString === ''){
-        searchString = "Ukraine";
+    //    searchString = "Ukraine";
     }
+    const searchRes = apiData.filter(el => el.attributes.Country_Region === searchString);
 
-    axios.post(URLbyCountry, {
-        country: searchString,
-    })
-        .then(function (response) {
-            let data = response.data.results.data;
-            $('.by-country .country-name').text(data.country);
-            $('.by-country .infected-count').text(data.totalCases);
-            $('.by-country .death').text(data.totalDeaths);
-            $('.by-country .recovered').text(data.totalRecovered);
-            $('.by-country .country-population').text(data.population.toLocaleString());
-            $('.spread-value').text((data.totalCases/diffDays).toFixed(0) + " people/day");
+    if(searchRes.length > 0) {
+        console.log(searchRes[0].attributes);
+        planetApp.focusOnACountry(searchRes[0].attributes.OBJECTID);
+
+        axios.post(URLbyCountry, {
+            country: searchString,
         })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-const loadPandemicData = ( resourcesPath ) => {
-    return fetch( resourcesPath + "pandemicData.txt" ).then( pandemicData => pandemicData.json( ) );
+            .then(function (response) {
+                let data = response.data.results.data;
+                $('.by-country .country-name').text(data.country);
+                $('.by-country .infected-count').text(data.totalCases);
+                $('.by-country .death').text(data.totalDeaths);
+                $('.by-country .recovered').text(data.totalRecovered);
+                $('.by-country .country-population').text(data.population.toLocaleString());
+                $('.spread-value').text((data.totalCases / diffDays).toFixed(0) + " people/day");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 }
 
 const fetchData = () => {
@@ -77,12 +83,14 @@ const dataProcessing = async () => {
             $('#population_' + index ).text((val.totalCases*100/val.population).toFixed(5)+" %");
         });
         Promise.all([
-            loadPandemicData( './lib/resources/' ),
             planetApp.load('./lib/resources')
         ]).then(() => {
-            console.log(data.apiData);
+            apiData = data.apiData;
             planetApp.setPandemicData({features: data.apiData});
-            planetApp.setContainer(document.querySelector("#planet-container"));
+            if(!mapCounter){
+                planetApp.setContainer(document.querySelector("#planet-container"));
+                mapCounter++;
+            }
         });
 
         getStatisticByCountry()
@@ -92,13 +100,20 @@ const dataProcessing = async () => {
 };
 const init = async () => {
     await dataProcessing();
-    setInterval(dataProcessing, TIMEOUT);
+   setInterval(dataProcessing, TIMEOUT);
 };
 init();
 
 $(".search_button").click(function() {
     getStatisticByCountry()
 });
+
+planetApp.on( "countryScreenPositionChanged", ( left, top ) => {
+    console.log(left, top);
+    countryContainer.style.left = (left + 20) + "px";
+    countryContainer.style.top = (top + 100) + "px";
+    countryContainer.style.display = "flex";
+} );
 
 $("#search_box").keydown(function(e) {
     if(e.keyCode === 13) {
