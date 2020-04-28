@@ -14,11 +14,15 @@ const countryContainer = document.querySelector( "#country-container" );
 
 function getStatisticByCountry() {
     let searchString = $("#search_box").val();
+    let search = searchString.toLowerCase().trim();
 
-    if(searchString === ''){
-    //    searchString = "Ukraine";
+    if(search === 'us' || search === 'u.s.a.' || search === 'u.s.a' || search === 'usa' || search === 'america'){
+        search = "us";
     }
-    const searchRes = apiData.filter(el => el.attributes.Country_Region === searchString);
+    const searchRes = apiData.filter(el => {
+        const country = el.attributes.Country_Region.toLowerCase();
+        return country === search;
+    });
 
     if(searchRes.length > 0) {
         planetApp.focusOnACountry(searchRes[0].attributes.OBJECTID);
