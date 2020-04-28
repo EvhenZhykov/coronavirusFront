@@ -380,13 +380,10 @@ body {
 */
 
 .footer {
-    padding: 30px 50px;
+    padding: 10px 50px;
     background-color: #FFFFFF;
     display: flex;
     justify-content: flex-end;
-}
-.footer div {
-    margin: 0 40px;
 }
 
 .copyright {
@@ -395,14 +392,4 @@ body {
     padding-bottom: 10px;
     padding-right: 10px;
     font-size: 12px;
-}
-
-@media (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer div {
-        margin: 20px 0;
-    }
 }
