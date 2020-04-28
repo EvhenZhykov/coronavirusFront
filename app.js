@@ -21,12 +21,9 @@ function getStatisticByCountry() {
     const searchRes = apiData.filter(el => el.attributes.Country_Region === searchString);
 
     if(searchRes.length > 0) {
-        console.log(searchRes[0].attributes);
         planetApp.focusOnACountry(searchRes[0].attributes.OBJECTID);
 
-        axios.post(URLbyCountry, {
-            country: searchString,
-        })
+        axios.get(URLbyCountry +'?country=' + searchString)
             .then(function (response) {
                 let data = response.data.results.data;
                 $('.by-country .country-name').text(data.country);
