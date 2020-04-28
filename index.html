@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="user-scalable=0"/>
     <title>Corona virus website</title>
+    <link rel="shortcut icon"
+          href="https://theevenstar.net/favicon-32x32.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
@@ -12,8 +15,10 @@
 <div class="main-content">
     <div class="map-container">
         <div class="flex-container section">
-            <img src="./images/logo.png" width="130"
-                 height="110" alt="logo">
+            <a href="http://theevenstar.net/">
+                <img src="./images/logo.png" width="130"
+                     height="110" alt="logo">
+            </a>
             <div class="input-group">
                 <input id="search_box" type="text" class="form-control" placeholder="Enter the country">
                 <div class="search_button input-group-addon"><i class="icon-long-arrow-right icon-large"></i></div>
@@ -29,7 +34,7 @@
                 <div class="country-title">
                     <span class="country-name"></span>
                     <span class="country-population font-danger"></span>
-                    <i class="icon-remove"></i>
+                    <button id="close_button"><i class="icon-remove"></i></button>
                 </div>
                 <div>
                     <div class="table">
@@ -172,6 +177,7 @@
         <div>Terms of service</div>
         <div>Terms of service</div>
     </div>
+    <div class="copyright">© The Evenstar, 2020, all rights reserved. <a href="https://systems.jhu.edu/research/public-health/ncov/">Data source</a></div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
