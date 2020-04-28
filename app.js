@@ -109,11 +109,16 @@ $(".search_button").click(function() {
 });
 
 planetApp.on( "countryScreenPositionChanged", ( left, top ) => {
-    console.log(left, top);
     countryContainer.style.left = (left + 20) + "px";
     countryContainer.style.top = (top + 100) + "px";
     countryContainer.style.display = "flex";
 } );
+
+$("#close_button").click(function() {
+    planetApp.unfocusCountry();
+    countryContainer.style.display = "none";
+    document.getElementById('search_box').value = ''
+});
 
 $("#search_box").keydown(function(e) {
     if(e.keyCode === 13) {
