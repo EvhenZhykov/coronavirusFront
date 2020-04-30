@@ -1,2 +1,3 @@
+Sitemap: https://covid.theevenstar.net/sitemap.xml
+
 User-Agent: *
-Disallow: /
