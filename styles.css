@@ -15,6 +15,7 @@ body {
 }
 
 
+
 .map-container {
     height: 100%;
 }
@@ -25,7 +26,7 @@ body {
 }
 .flex-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding-top: 40px;
     z-index: 9999;
 }
@@ -332,9 +333,9 @@ body {
 
 }
 
-.content-table .content-name {
+.content-table .content-name,.content-head {
     font-size: 18px;
-    text-align: left;
+    text-align: left!important;
     border-radius: 15px 0 0 15px;
     border-right: none;
     padding: 27px 20px 28px 20px;
@@ -346,6 +347,10 @@ body {
 
 .content-table .content-share {
     font-size: 28px;
+    border-radius: 0 15px 15px 0;
+}
+
+.content-part {
     border-radius: 0 15px 15px 0;
 }
 

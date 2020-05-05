@@ -124,6 +124,17 @@ $("#close_button").click(function() {
 $("#search_box").keydown(function(e) {
     if(e.keyCode === 13) {
         getStatisticByCountry()
+    } else  {
+        const search = document.getElementById('search_box').value;
+        const searchRes = apiData.filter(el => {
+            const country = el.attributes.Country_Region.toLowerCase();
+            return country.includes(search);
+        });
+        let options = '';
+        for(let i = 0; i < searchRes.length; i++)
+            options += '<option value="'+searchRes[i].attributes.Country_Region+'" />';
+
+        document.getElementById('countries').innerHTML = options;
     }
 });
 

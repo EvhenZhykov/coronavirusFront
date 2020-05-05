@@ -30,12 +30,13 @@
 <div class="main-content">
     <div class="map-container">
         <div class="flex-container section">
-            <a href="http://theevenstar.net/">
+            <!--<a href="http://theevenstar.net/">
                 <img src="./images/logo.png" width="130"
                      height="110" alt="logo">
-            </a>
+            </a>-->
             <div class="input-group">
-                <input id="search_box" type="text" class="form-control" placeholder="Enter the country">
+                <input id="search_box" type="text" class="form-control" placeholder="Enter the country" list="countries">
+                <datalist id="countries"></datalist>
                 <div class="search_button input-group-addon"><i class="icon-long-arrow-right icon-large"></i></div>
             </div>
         </div>
@@ -142,6 +143,16 @@
             Top infected countries
         </div>
         <div class="col-xs-12 content-table">
+            <div class="col-xs-12 col-lg-6 top-countries">
+                <div class="col-xs-4 content-head">Country</div>
+                <div class="col-xs-4">Cases</div>
+                <div class="col-xs-4 content-part">% of population</div>
+            </div>
+            <div class="col-xs-12 visible-lg col-lg-6 top-countries">
+                <div class="col-xs-4 content-head">Country</div>
+                <div class="col-xs-4">Cases</div>
+                <div class="col-xs-4 content-part">% of population</div>
+            </div>
             <div class="col-xs-12 col-lg-6 top-countries">
                 <div id="indexName_0" class="col-xs-4 content-name"></div>
                 <div id="indexCount_0" class="col-xs-4 content-count font-danger"></div>
