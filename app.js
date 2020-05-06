@@ -84,7 +84,7 @@ const dataProcessing = async () => {
             $('#population_' + index ).text((val.totalCases*100/val.population).toFixed(5)+" %");
         });
         Promise.all([
-            planetApp.load('./lib/resources')
+            planetApp.load('./PlanetAppLib/resources')
         ]).then(() => {
             apiData = data.apiData;
             planetApp.setPandemicData({features: data.apiData});
@@ -125,7 +125,7 @@ $("#search_box").keydown(function(e) {
     if(e.keyCode === 13) {
         getStatisticByCountry()
     } else  {
-        const search = document.getElementById('search_box').value;
+        const search = document.getElementById('search_box').value.toLowerCase();
         const searchRes = apiData.filter(el => {
             const country = el.attributes.Country_Region.toLowerCase();
             return country.includes(search);
