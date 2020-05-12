@@ -12,6 +12,11 @@ const URLbyCountry = HOST +'/api/statistic';
 const TIMEOUT = 86400;
 const countryContainer = document.querySelector( "#country-container" );
 
+planetApp.on( "planetAppLoaded", () => {
+    const loader = document.querySelector( "#loader" );
+    loader.style.display = 'none';
+} );
+
 function getStatisticByCountry() {
     let searchString = $("#search_box").val();
     let search = searchString.toLowerCase().trim();
