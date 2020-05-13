@@ -41,6 +41,7 @@ function getStatisticByCountry() {
                 $('.by-country .recovered').text(data.totalRecovered);
                 $('.by-country .country-population').text(data.population.toLocaleString());
                 $('.spread-value').text((data.totalCases / diffDays).toFixed(0) + " people/day");
+                document.getElementById('countries').innerHTML = '';
             })
             .catch(function (error) {
                 console.log(error);
@@ -126,20 +127,25 @@ $("#close_button").click(function() {
     document.getElementById('search_box').value = ''
 });
 
+function onInput() {
+    const search = document.getElementById('search_box').value;
+    const searchRes = apiData.filter(el => {
+        const country = el.attributes.Country_Region.toLowerCase();
+        return country.includes(search.toLowerCase());
+    });
+    if((searchRes.length === 1 && searchRes[0].attributes.Country_Region === search) || search === 'US') {
+        getStatisticByCountry();
+    }
+    let options = '';
+    for(let i = 0; i < searchRes.length; i++) {
+        options += '<option value="' + searchRes[i].attributes.Country_Region + '" />';
+    }
+    document.getElementById('countries').innerHTML = options;
+}
+
 $("#search_box").keydown(function(e) {
     if(e.keyCode === 13) {
         getStatisticByCountry()
-    } else  {
-        const search = document.getElementById('search_box').value.toLowerCase();
-        const searchRes = apiData.filter(el => {
-            const country = el.attributes.Country_Region.toLowerCase();
-            return country.includes(search);
-        });
-        let options = '';
-        for(let i = 0; i < searchRes.length; i++)
-            options += '<option value="'+searchRes[i].attributes.Country_Region+'" />';
-
-        document.getElementById('countries').innerHTML = options;
     }
 });
 
