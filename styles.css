@@ -407,6 +407,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    text-align: center;
 }
 
 .copyright {
