@@ -13,8 +13,10 @@ const TIMEOUT = 86400;
 const countryContainer = document.querySelector( "#country-container" );
 
 planetApp.on( "planetAppLoaded", () => {
-    const loader = document.querySelector( "#loader" );
+    const loader = document.querySelector( "#planet-progress" );
+    const title = document.querySelector( "#loader-title" );
     loader.style.display = 'none';
+    title.style.display = 'none';
 } );
 
 function getStatisticByCountry() {
@@ -109,6 +111,7 @@ const init = async () => {
     await dataProcessing();
    setInterval(dataProcessing, TIMEOUT);
 };
+move();
 init();
 
 $(".search_button").click(function() {
@@ -141,6 +144,27 @@ function onInput() {
         options += '<option value="' + searchRes[i].attributes.Country_Region + '" />';
     }
     document.getElementById('countries').innerHTML = options;
+}
+
+
+function move() {
+    let i = 0;
+    if (i === 0) {
+        i = 1;
+        let elem = document.getElementById("planet-bar");
+        let width = 5;
+        let id = setInterval(frame, 10);
+        function frame() {
+            if (width >= 95) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width + "%";
+            }
+        }
+    }
 }
 
 $("#search_box").keydown(function(e) {
