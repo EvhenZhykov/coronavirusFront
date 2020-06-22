@@ -153,7 +153,7 @@ function move() {
         i = 1;
         let elem = document.getElementById("planet-bar");
         let width = 5;
-        let id = setInterval(frame, 10);
+        let id = setInterval(frame, 25);
         function frame() {
             if (width >= 95) {
                 clearInterval(id);
