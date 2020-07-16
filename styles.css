@@ -376,7 +376,11 @@ body {
 
 .mobile-img {
     text-align: center;
-    margin: 35px 10px;
+    margin: 0 10px 95px 10px;
+}
+
+.mobile-img img {
+    width: 450px;
 }
 
 @media (max-width: 398px) {
