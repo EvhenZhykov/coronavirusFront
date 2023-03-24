@@ -6,7 +6,7 @@ let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 let mapCounter = 0;
 let apiData = [];
 
-const HOST = 'https://api.covid.theevenstar.net';
+const HOST = 'https://api-covid.theevenstar.net';
 const URL = HOST+'/api/last-statistic';
 const URLbyCountry = HOST +'/api/statistic';
 const TIMEOUT = 86400;
